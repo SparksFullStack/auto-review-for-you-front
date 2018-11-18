@@ -1,6 +1,11 @@
 import React, { Fragment } from 'react';
 import './mainpage.css';
-import { Button } from 'reactstrap';
+import { 
+  Button,
+  Container,
+  Row,
+  Col
+} from 'reactstrap';
 import { Link, Redirect } from 'react-router-dom';
 import LoginRegisterModal from '../Modals/loginregistermodal';
 import axios from 'axios';
@@ -249,7 +254,20 @@ class Searchbar extends React.Component {
             )}
           </div>
 
-          {this.handleReviewButton()}
+          {/* {this.handleReviewButton()} */}
+
+          <div>
+              <Container>
+                <Row className="justify-content-center">
+                  <Col md="3">
+                    <Button style={{width: '100%'}} color="primary">Review</Button>
+                  </Col>
+                  <Col md="3">
+                    <Button style={{width: '100%'}} color="primary">Search</Button>
+                  </Col>
+                </Row>
+              </Container>
+          </div>
         </div>
       </div>
     );
