@@ -91,20 +91,24 @@ class MainNavbar extends Component {
         </Navbar>
       )
     } else return (
-      <Navbar color="primary" expand="md" light>
-        <Nav className="ml-auto" navbar>
-          <NavItem >
-            <NavLink className="text-white" href="/">
-              <i className="fas fa-home"></i> Home
-            </NavLink>
-          </NavItem>
+      <Navbar color="primary" light expand="md">
+        <NavbarBrand className="text-white" href="/">auto review for you</NavbarBrand>
+        <NavbarToggler onClick={this.navToggler} />
+        <Collapse isOpen={this.state.navState.isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem >
+              <NavLink className="text-white" href="/">
+                <i className="fas fa-home"></i> Home
+              </NavLink>
+            </NavItem>
 
-          <NavItem >
-            <NavLink className="text-white" href="/login">
-              <i className="fas fa-sign-in-alt"></i> Sign In
-            </NavLink>
-          </NavItem>
-        </Nav>
+            <NavItem >
+              <NavLink className="text-white" href="/login">
+                <i className="fas fa-sign-in-alt"></i> Sign In
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
       </Navbar>
     )
   }
@@ -112,19 +116,43 @@ class MainNavbar extends Component {
   render() { 
     return (
       <div>
-          {/* <Media query='(max-width: 1000px)'>
-            {matches => 
-              matches ? 
-              <div style={{backgroundColor: "blue"}}>
-                <div style={styles.hamburgerStyles} id='hamburger-menu'>
-                <HamburgerMenu right isLoggedIn={this.props.isLoggedIn} /> 
-              </div>
-              : <Fragment>{this.handleRenderNavItems()}</Fragment>
-            }
-          </Media> */}
+        <Navbar color="primary" light expand="md">
+        <NavbarBrand className="text-white" href="/">auto review for you</NavbarBrand>
+        <NavbarToggler onClick={this.navToggler} />
+        <Collapse style={{textAlign: "left"}} isOpen={this.state.navState.isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+          <NavItem>
+                <NavLink className="text-white" href="/">
+                  <i className="fas fa-home"></i> Home
+                </NavLink>
+              </NavItem>
 
-          {this.handleRenderNavItems()}
+              <NavItem >
+                <NavLink className="text-white" href="/MyReviews">
+                  <i className="fas fa-newspaper"></i> My Reviews
+                </NavLink>
+              </NavItem>
 
+              <NavItem >
+                <NavLink className="text-white" href="/Billing">
+                  <i className="fas fa-money-bill-alt"></i> Billing
+                </NavLink>
+              </NavItem>
+
+              <NavItem >
+                <NavLink className="text-white" href="/Settings">
+                  <i className="fas fa-cogs"></i> Settings
+                </NavLink>
+              </NavItem>
+
+              <NavItem >
+                <NavLink className="text-white" href="/login">
+                <i className="fas fa-sign-out-alt"></i> Sign Out
+                </NavLink>
+              </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
       </div>
     );
   }
