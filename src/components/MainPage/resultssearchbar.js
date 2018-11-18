@@ -1,7 +1,12 @@
 import React, { Fragment } from 'react';
 import './mainpage.css';
-import { Button } from 'reactstrap';
-import { Link, Redirect } from 'react-router-dom';
+import { 
+  Button,
+  Container,
+  Row,
+  Col
+} from 'reactstrap';
+import { Redirect } from 'react-router-dom';
 import './hamburgermenu.css';
 import LoginRegisterModal from '../Modals/loginregistermodal';
 import axios from 'axios';
@@ -170,30 +175,32 @@ class ResultsSearchbar extends React.Component {
   handleReviewButton = () => {
     if (this.props.isLoggedIn) {
       return (
-        <div className="searchbar-buttons-container">
-          <Link className="searchbar-buttons-links" to="/MyReviews">
-            <Button className="searchbar-buttons">Review</Button>
-          </Link>
-          <div className="searchbar-buttons-links">
-            <Button className="searchbar-buttons" onClick={() => this.searchFunction()}>
-              Search
-            </Button>
-          </div>
+        <div>
+          <Container>
+            <Row className="justify-content-center">
+              <Col md="3">
+                <Button href="/MyReviews" style={{width: '100%'}} color="primary">Review</Button>
+              </Col>
+              <Col md="3">
+                <Button onClick={() => this.searchFunction()} style={{width: '100%'}} color="primary">Search</Button>
+              </Col>
+            </Row>
+          </Container>
         </div>
       );
     } else {
       return (
-        <div className="searchbar-buttons-container">
-          <Link to="/login" className="searchbar-buttons-links">
-            <Button className="searchbar-buttons" onClick={this.handleModalState('login', true)}>
-              Review
-            </Button>
-          </Link>
-          <div className="searchbar-buttons-links">
-            <Button className="searchbar-buttons" onClick={() => this.searchFunction()}>
-              Search
-            </Button>
-          </div>
+        <div>
+          <Container>
+            <Row className="justify-content-center">
+              <Col md="3">
+                <Button href="/login" style={{width: '100%'}} color="primary">Review</Button>
+              </Col>
+              <Col md="3">
+                <Button onClick={() => this.searchFunction()} style={{width: '100%'}} color="primary">Search</Button>
+              </Col>
+            </Row>
+          </Container>
         </div>
       );
     }
