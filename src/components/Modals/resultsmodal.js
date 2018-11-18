@@ -77,7 +77,7 @@ class ResultsModal extends Component {
     const { year, make, model, title, content, score, user, carImage } = this.props;
     return (
       <Col lg="3" md="6">
-        <Button className="modal-button" onClick={this.toggle}>
+        <Button className="modal-button" outline color="primary" onClick={this.toggle}>
           <p style={{ fontSize: '1.1em' }}>{`${year} ${make} ${model}`}</p>
           <div style={{ height: '150px' }}>
             <img

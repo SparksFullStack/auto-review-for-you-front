@@ -1,7 +1,7 @@
 .modal-button {
     background-color: rgba(255,255,255,0.9);
     color: #2F77F3;
-    border: none !important; 
+    /* border: none !important;  */
     min-height: 300px; /* so that the bottom of the content is not cut off */
     width: 102%; /* to acheive responsiveness; its width is already set by its parent - reactStrap Col */ 
     margin: 30px;
