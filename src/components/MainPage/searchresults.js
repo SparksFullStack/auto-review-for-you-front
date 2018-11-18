@@ -7,7 +7,8 @@ import {
   DropdownItem,
   UncontrolledDropdown,
   Container,
-  Row
+  Row,
+  Col
 } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import ResultsModal from '../Modals/resultsmodal';
@@ -106,6 +107,29 @@ class SearchResults extends Component {
     this.setState({ usernameSelected: '' });
   }
 
+  handleRenderDropdowns = () => {
+
+
+    // <UncontrolledDropdown className="ml-auto mr-auto">
+    //   <DropdownToggle caret className="searchbar-buttons">
+    //     Filter By:
+    //   </DropdownToggle>
+    //   <DropdownMenu>
+    //     <DropdownItem onClick={() => this.handleResetFilter()}>All Users</DropdownItem>
+    //     {this.state.usernames.map(username => {
+    //       return (
+    //         <DropdownItem
+    //           key={username}
+    //           onClick={() => this.handleReviewerFilter(username)}
+    //         >
+    //           {username}
+    //         </DropdownItem>
+    //       );
+    //     })}
+    //   </DropdownMenu>
+    // </UncontrolledDropdown>
+  }
+
   componentDidMount() {
     const { searchResults } = this.props.location.state;
     const usernamesArr = [];
@@ -146,30 +170,32 @@ class SearchResults extends Component {
       <div>
         {this.handleRedirect()}
         <Navbar isLoggedIn={this.props.location.state.isLoggedIn} handleLogin={this.handleLogin} />
-        <div className="filter-row">
-          <div className="filters">
-            <UncontrolledDropdown className="dropdowns">
-              <DropdownToggle caret className="searchbar-buttons">
-                Filter By:
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem onClick={() => this.handleResetFilter()}>All Users</DropdownItem>
-                {this.state.usernames.map(username => {
-                  return (
-                    <DropdownItem
-                      key={username}
-                      onClick={() => this.handleReviewerFilter(username)}
-                    >
-                      {username}
-                    </DropdownItem>
-                  );
-                })}
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </div>
-          <div className="sort-by">
-            <UncontrolledDropdown className="dropdowns">
-              <DropdownToggle caret className="searchbar-buttons">
+        <Container>
+          <Row className="justify-content-center">
+            <Col md="3">
+              <UncontrolledDropdown>
+                <DropdownToggle style={{width: "70%"}} caret className="searchbar-buttons">
+                  Filter By:
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem onClick={() => this.handleResetFilter()}>All Users</DropdownItem>
+                  {this.state.usernames.map(username => {
+                    return (
+                      <DropdownItem
+                        key={username}
+                        onClick={() => this.handleReviewerFilter(username)}
+                      >
+                        {username}
+                      </DropdownItem>
+                    );
+                  })}
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Col>
+
+            <Col md="3">
+            <UncontrolledDropdown>
+              <DropdownToggle style={{width: "70%"}} caret className="searchbar-buttons">
                 Sort By:
               </DropdownToggle>
               <DropdownMenu>
@@ -187,8 +213,9 @@ class SearchResults extends Component {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
         <Container style={{ marginBottom: '100px' }}>
           <Row style={{ marginTop: '20px' }}>
             {filteredList.map(review => (

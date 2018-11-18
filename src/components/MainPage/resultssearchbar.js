@@ -206,6 +206,10 @@ class ResultsSearchbar extends React.Component {
     }
   };
 
+  handleRenderDropDowns = () => {
+
+  }
+
   handleSetJwtState = (type, jwt) => {
     localStorage.setItem('jwt', jwt);
     this.props.handleLogin(true);
