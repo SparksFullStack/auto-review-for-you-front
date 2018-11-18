@@ -2,10 +2,6 @@
     margin: 10px !important;
 }
 
-.test-buttons {
-    margin: 10px !important;
-}
-
 @media (min-width: 450px){
     .searchbar-buttons-container {
         display: flex;

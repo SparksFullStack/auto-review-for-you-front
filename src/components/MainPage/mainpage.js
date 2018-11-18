@@ -46,7 +46,10 @@ class MainPage extends Component {
           <SearchBar isLoggedIn={isLoggedIn} handleLogin={this.handleLogin} />
         </div>
         <MainContent isLoggedIn={isLoggedIn} />
+        
         <div className="team-link">
+          <i className="fas fa-car"></i>
+          <br />
           <a
             href="https://lambdaschool.com"
             className="team-link"
@@ -56,15 +59,6 @@ class MainPage extends Component {
             Click here to learn about The Team!
           </a>
           <div style={{ width: '10px' }} />
-          Blue Car Icon -{' '}
-          <a
-            href="https://pngtree.com/freepng/blue-flat-car_1154079.html"
-            style={{ color: 'white' }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            pngtree.com
-          </a>
         </div>
       </div>
     );
