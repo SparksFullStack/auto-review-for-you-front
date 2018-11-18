@@ -179,10 +179,10 @@ class ResultsSearchbar extends React.Component {
           <Container>
             <Row className="justify-content-center">
               <Col md="3">
-                <Button href="/MyReviews" style={{width: '100%'}} color="primary">Review</Button>
+                <Button href="/MyReviews" style={{width: '70%'}} color="primary">Review</Button>
               </Col>
               <Col md="3">
-                <Button onClick={() => this.searchFunction()} style={{width: '100%'}} color="primary">Search</Button>
+                <Button onClick={() => this.searchFunction()} style={{width: '70%'}} color="primary">Search</Button>
               </Col>
             </Row>
           </Container>
@@ -194,10 +194,10 @@ class ResultsSearchbar extends React.Component {
           <Container>
             <Row className="justify-content-center">
               <Col md="3">
-                <Button href="/login" style={{width: '100%'}} color="primary">Review</Button>
+                <Button href="/login" style={{width: '70%'}} color="primary">Review</Button>
               </Col>
               <Col md="3">
-                <Button onClick={() => this.searchFunction()} style={{width: '100%'}} color="primary">Search</Button>
+                <Button onClick={() => this.searchFunction()} style={{width: '70%'}} color="primary">Search</Button>
               </Col>
             </Row>
           </Container>
