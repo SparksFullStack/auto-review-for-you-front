@@ -169,7 +169,7 @@ class SearchResults extends Component {
     return (
       <div>
         {this.handleRedirect()}
-        <Navbar isLoggedIn={this.props.location.state.isLoggedIn} handleLogin={this.handleLogin} />
+        
         <Container>
           <Row className="justify-content-center">
             <Col md="3">

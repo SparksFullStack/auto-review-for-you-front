@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import './mainpage.css';
+import Navbar from './navbar';
 import { 
   Button,
   Container,
@@ -206,8 +207,11 @@ class ResultsSearchbar extends React.Component {
     }
   };
 
-  handleRenderDropDowns = () => {
+  renderNavBar = () => {
+    const verifyJWT = localStorage.getItem('jwt');
 
+    if (verifyJWT) return <Navbar isLoggedIn={true} />;
+    else return <Navbar isLoggedIn={false} />
   }
 
   handleSetJwtState = (type, jwt) => {
@@ -217,9 +221,10 @@ class ResultsSearchbar extends React.Component {
   };
 
   render() {
+    console.log(localStorage.getItem('jwt'));
     return (
       <div>
-        <div style={{ height: '65px' }} />
+        {this.renderNavBar()}
         <div className="searchbar">
           {this.handleRedirect()}
           <LoginRegisterModal

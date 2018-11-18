@@ -54,10 +54,12 @@ class MainNavbar extends Component {
   handleRenderNavItems = () => {
     if (this.props.isLoggedIn){
       return (
-        <Navbar color="primary" expand="lg" light>
-           <NavbarBrand className="text-white" href="/">auto review for you</NavbarBrand>
-            <Nav className="ml-auto" navbar>
-              <NavItem >
+        <Navbar color="primary" light expand="md">
+        <NavbarBrand className="text-white" href="/">auto review for you</NavbarBrand>
+        <NavbarToggler onClick={this.navToggler} />
+        <Collapse style={{textAlign: "left"}} isOpen={this.state.navState.isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
                 <NavLink className="text-white" href="/">
                   <i className="fas fa-home"></i> Home
                 </NavLink>
@@ -86,9 +88,9 @@ class MainNavbar extends Component {
                 <i className="fas fa-sign-out-alt"></i> Sign Out
                 </NavLink>
               </NavItem>
-            </Nav>
-          
-        </Navbar>
+          </Nav>
+        </Collapse>
+      </Navbar>
       )
     } else return (
       <Navbar color="primary" light expand="md">
@@ -116,43 +118,7 @@ class MainNavbar extends Component {
   render() { 
     return (
       <div>
-        <Navbar color="primary" light expand="md">
-        <NavbarBrand className="text-white" href="/">auto review for you</NavbarBrand>
-        <NavbarToggler onClick={this.navToggler} />
-        <Collapse style={{textAlign: "left"}} isOpen={this.state.navState.isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-          <NavItem>
-                <NavLink className="text-white" href="/">
-                  <i className="fas fa-home"></i> Home
-                </NavLink>
-              </NavItem>
-
-              <NavItem >
-                <NavLink className="text-white" href="/MyReviews">
-                  <i className="fas fa-newspaper"></i> My Reviews
-                </NavLink>
-              </NavItem>
-
-              <NavItem >
-                <NavLink className="text-white" href="/Billing">
-                  <i className="fas fa-money-bill-alt"></i> Billing
-                </NavLink>
-              </NavItem>
-
-              <NavItem >
-                <NavLink className="text-white" href="/Settings">
-                  <i className="fas fa-cogs"></i> Settings
-                </NavLink>
-              </NavItem>
-
-              <NavItem >
-                <NavLink className="text-white" href="/login">
-                <i className="fas fa-sign-out-alt"></i> Sign Out
-                </NavLink>
-              </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
+        {this.handleRenderNavItems()}
       </div>
     );
   }
