@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Navbar from './components/MainPage/navbar';
 import MainPage from './components/MainPage/mainpage';
 import MyReviews from './components/UserPage/myreviews';
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -24,6 +25,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navbar />
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route path="/searchpage" component={SearchResults} />

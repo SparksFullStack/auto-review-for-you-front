@@ -41,9 +41,6 @@ class Settings extends Component {
 
     return (
       <div>
-        <div>
-          <Navbar isLoggedIn={isLoggedIn} handleLogin={this.handleLogin} />
-        </div>
         <div className="settingsContainer">
           <UserSettings />
         </div>

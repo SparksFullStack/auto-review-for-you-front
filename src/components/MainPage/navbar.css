@@ -8,6 +8,10 @@
     z-index: 3;
 }
 
+.navbar-collapse {
+    text-align: left !important;
+}
+
 .nc {
     display: flex;
     justify-content: space-evenly;

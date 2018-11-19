@@ -39,9 +39,6 @@ class MyReviews extends Component {
 
     return (
       <div>
-        <div>
-          <Navbar isLoggedIn={isLoggedIn} handleLogin={this.handleLogin} />
-        </div>
         <div className="settingsContainer">
           <ReviewList />
         </div>

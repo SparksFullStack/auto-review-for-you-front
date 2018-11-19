@@ -38,8 +38,8 @@ class MainNavbar extends Component {
       },
       navState: {
         isOpen: false,
-      }
-
+      },
+      isLoggedIn: false
      }
   }
 
@@ -47,17 +47,26 @@ class MainNavbar extends Component {
     Auth.logout();
   };
 
+  checkLogin = () => {
+    return Auth.loggedIn();
+  }
+
   navToggler = () => {
     this.setState({ navState: { isOpen: !this.state.navState.isOpen }});
   }
 
+  componentDidMount(){
+    this.setState({ isLoggedIn: this.checkLogin() });
+  }
+
+
   handleRenderNavItems = () => {
-    if (this.props.isLoggedIn){
+    if (this.checkLogin()){
       return (
         <Navbar color="primary" light expand="md">
         <NavbarBrand className="text-white" href="/">auto review for you</NavbarBrand>
         <NavbarToggler onClick={this.navToggler} />
-        <Collapse style={{textAlign: "left"}} isOpen={this.state.navState.isOpen} navbar>
+        <Collapse className="navbar-collapse-styles" isOpen={this.state.navState.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
                 <NavLink className="text-white" href="/">
@@ -84,8 +93,8 @@ class MainNavbar extends Component {
               </NavItem>
 
               <NavItem >
-                <NavLink className="text-white" href="/login">
-                <i className="fas fa-sign-out-alt"></i> Sign Out
+                <NavLink onClick={this.signOut} className="text-white" href="/login">
+                  <i className="fas fa-sign-out-alt"></i> Sign Out
                 </NavLink>
               </NavItem>
           </Nav>
@@ -116,6 +125,7 @@ class MainNavbar extends Component {
   }
 
   render() { 
+    console.log(this.props.isLoggedIn)
     return (
       <div>
         {this.handleRenderNavItems()}

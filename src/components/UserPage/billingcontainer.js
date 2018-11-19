@@ -40,9 +40,6 @@ class BillingContainer extends Component {
 
     return (
       <div>
-        <div>
-          <Navbar isLoggedIn={isLoggedIn} handleLogin={this.handleLogin} />
-        </div>
         <Billing />
       </div>
     );

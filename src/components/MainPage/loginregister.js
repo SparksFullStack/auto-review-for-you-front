@@ -252,7 +252,6 @@ class LoginRegister extends Component {
   render() {
     return (
       <div>
-        <NavBar />
         {this.handleRenderFormType()}
       </div>
     );
