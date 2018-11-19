@@ -178,10 +178,10 @@ class Searchbar extends React.Component {
           <Container>
             <Row className="justify-content-center">
               <Col md="3">
-                <Button href="/MyReviews" className="searchbar-buttons" style={{width: '70%'}} color="primary">Review</Button>
+                <Button href="/MyReviews" className="searchbar-buttons" style={{width: '75%', margin: "0 !important"}} color="primary">Review</Button>
               </Col>
               <Col md="3">
-                <Button className="searchbar-buttons" onClick={() => this.searchFunction()} style={{width: '70%', margin: "0 !important"}} color="primary">Search</Button>
+                <Button className="searchbar-buttons" onClick={() => this.searchFunction()} style={{width: '75%', margin: "0 !important"}} color="primary">Search</Button>
               </Col>
             </Row>
           </Container>
@@ -193,22 +193,16 @@ class Searchbar extends React.Component {
           <Container>
             <Row className="justify-content-center">
               <Col md="3">
-                <Button href="/login" className="searchbar-buttons" style={{width: '70%', margin: "0 !important"}} color="primary">Review</Button>
+                <Button href="/login"  style={{width: '75%', margin: "0 !important"}} color="primary">Review</Button>
               </Col>
               <Col md="3">
-                <Button className="searchbar-buttons" onClick={() => this.searchFunction()} style={{width: '70%', margin: "0 !important"}} color="primary">Search</Button>
+                <Button className="searchbar-buttons" onClick={() => this.searchFunction()} style={{width: '75%', margin: "0 !important"}} color="primary">Search</Button>
               </Col>
             </Row>
           </Container>
         </div>
       );
     }
-  };
-
-  handleSetJwtState = (type, jwt) => {
-    localStorage.setItem('jwt', jwt);
-    this.props.handleLogin(true);
-    this.setState({ modalState: { isOpen: false, type } });
   };
 
   render() {
@@ -256,8 +250,6 @@ class Searchbar extends React.Component {
           </div>
 
           {this.handleReviewButton()}
-
-          
         </div>
       </div>
     );
