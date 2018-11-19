@@ -84,6 +84,16 @@ class ReviewList extends Component {
 
     const reviewListCards = (
       <div>
+        {/* <div className="reviewSpecial">
+          <h4>New review</h4>
+          <NewReviewModal
+            className={'plusButton'}
+            buttonLabel={'+'}
+            userInfo={this.state.data.user}
+            addReview={this.addReview}
+          />
+        </div> */}
+        <Container style={{ marginBottom: '100px' }}>
         <div className="reviewSpecial">
           <h4>New review</h4>
           <NewReviewModal
@@ -93,7 +103,6 @@ class ReviewList extends Component {
             addReview={this.addReview}
           />
         </div>
-        <Container style={{ marginBottom: '100px' }}>
           <Row style = {{ marginTop: '20px' }}>
           {this.state.data.reviews.map(review => {
             return (

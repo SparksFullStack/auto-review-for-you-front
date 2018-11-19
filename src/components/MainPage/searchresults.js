@@ -15,6 +15,7 @@ import ResultsModal from '../Modals/resultsmodal';
 import Navbar from './navbar';
 import memoize from 'memoize-one';
 import axios from 'axios';
+import Footer from './Footer';
 
 // This is our Search Results page. Users will be brought here after clicking the 'search' button
 // from the Search Bar. There are 'filter by' dropdowns and a 'sort-by' dropdown, followed by the
@@ -127,7 +128,7 @@ class SearchResults extends Component {
           <Row className="justify-content-center">
             <Col md="3">
               <UncontrolledDropdown>
-                <DropdownToggle style={{width: "70%"}} caret className="searchbar-buttons">
+                <DropdownToggle style={{width: "75%"}} caret className="searchbar-buttons">
                   Filter By:
                 </DropdownToggle>
                 <DropdownMenu>
@@ -148,7 +149,7 @@ class SearchResults extends Component {
 
             <Col md="3">
             <UncontrolledDropdown>
-              <DropdownToggle style={{width: "70%"}} caret className="searchbar-buttons">
+              <DropdownToggle style={{width: "75%"}} caret className="searchbar-buttons">
                 Sort By:
               </DropdownToggle>
               <DropdownMenu>
@@ -169,13 +170,14 @@ class SearchResults extends Component {
             </Col>
           </Row>
         </Container>
-        <Container style={{ marginBottom: '100px' }}>
+        <Container style={{ marginBottom: '60px' }}>
           <Row style={{ marginTop: '20px' }}>
             {filteredList.map(review => (
               <ResultsModal key={review._id} {...review.car} {...review} {...review.user} />
             ))}
           </Row>
         </Container>
+        <Footer />
       </div>
     );
   }

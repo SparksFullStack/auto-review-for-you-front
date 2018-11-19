@@ -3,6 +3,7 @@ import SearchBar from './searchbar';
 import MainContent from './maincontent';
 import axios from 'axios';
 import Navbar from './navbar';
+import Footer from './Footer';
 
 const dbRequests = `https://back-lambda-car-reviews.herokuapp.com/auth/verify`;
 
@@ -41,24 +42,9 @@ class MainPage extends Component {
 
     return (
       <div>
-        <div>
-          <SearchBar isLoggedIn={isLoggedIn} />
-        </div>
+        <SearchBar isLoggedIn={isLoggedIn} />
         <MainContent isLoggedIn={isLoggedIn} />
-        
-        <div className="team-link">
-          <i className="fas fa-car"></i>
-          <br />
-          <a
-            href="https://lambdaschool.com"
-            className="team-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Click here to learn about The Team!
-          </a>
-          <div style={{ width: '10px' }} />
-        </div>
+        <Footer />
       </div>
     );
   }
