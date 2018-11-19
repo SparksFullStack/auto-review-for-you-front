@@ -125,7 +125,6 @@ class MainNavbar extends Component {
   }
 
   render() { 
-    console.log(this.props.isLoggedIn)
     return (
       <div>
         {this.handleRenderNavItems()}
