@@ -207,24 +207,10 @@ class ResultsSearchbar extends React.Component {
     }
   };
 
-  renderNavBar = () => {
-    const verifyJWT = localStorage.getItem('jwt');
-
-    if (verifyJWT) return <Navbar isLoggedIn={true} />;
-    else return <Navbar isLoggedIn={false} />
-  }
-
-  handleSetJwtState = (type, jwt) => {
-    localStorage.setItem('jwt', jwt);
-    this.props.handleLogin(true);
-    this.setState({ modalState: { isOpen: false, type } });
-  };
-
+  
   render() {
-    console.log(localStorage.getItem('jwt'));
     return (
       <div>
-        {this.renderNavBar()}
         <div className="searchbar">
           {this.handleRedirect()}
           <LoginRegisterModal

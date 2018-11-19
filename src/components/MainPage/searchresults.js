@@ -86,12 +86,7 @@ class SearchResults extends Component {
     ) {
       return <Redirect to="/" />;
     } else {
-      return (
-        <ResultsSearchbar
-          isLoggedIn={this.props.location.state.isLoggedIn}
-          handleLogin={this.handleLogin}
-        />
-      );
+      return <ResultsSearchbar />;
     }
   };
 
@@ -107,58 +102,16 @@ class SearchResults extends Component {
     this.setState({ usernameSelected: '' });
   }
 
-  handleRenderDropdowns = () => {
-
-
-    // <UncontrolledDropdown className="ml-auto mr-auto">
-    //   <DropdownToggle caret className="searchbar-buttons">
-    //     Filter By:
-    //   </DropdownToggle>
-    //   <DropdownMenu>
-    //     <DropdownItem onClick={() => this.handleResetFilter()}>All Users</DropdownItem>
-    //     {this.state.usernames.map(username => {
-    //       return (
-    //         <DropdownItem
-    //           key={username}
-    //           onClick={() => this.handleReviewerFilter(username)}
-    //         >
-    //           {username}
-    //         </DropdownItem>
-    //       );
-    //     })}
-    //   </DropdownMenu>
-    // </UncontrolledDropdown>
-  }
-
   componentDidMount() {
     const { searchResults } = this.props.location.state;
     const usernamesArr = [];
-    const localJWT = localStorage.getItem('jwt');
+    
 
     for (let i = 0; i < searchResults.length; i++) {
       usernamesArr.push(searchResults[i].user.username);
     }
     this.setState({ usernames: [...new Set(usernamesArr)] });
-
-    if (!localJWT) this.handleLogin(false);
-    else {
-      axios
-        .get(dbRequests, { headers: { jwt: localJWT } })
-        .then(response => {
-          const { tokenIsValid } = response.data;
-          if (tokenIsValid) this.handleLogin(tokenIsValid);
-          else this.handleLogin(false);
-        })
-        .catch(err => {
-          console.log(err);
-          this.handleLogin(false);
-        });
-    }
   }
-
-  handleLogin = status => {
-    this.setState({ isLoggedIn: status });
-  };
 
   render() {
     const { usernameSelected, sortBy } = this.state;
