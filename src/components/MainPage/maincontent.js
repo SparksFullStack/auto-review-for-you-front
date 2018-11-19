@@ -175,6 +175,8 @@ class MainContent extends Component {
                   <Col lg="3" md="6" key={reviewer._id} style={{ marginBottom: '35px' }}>
                     <Button
                       className="main-card"
+                      outline
+                      color="primary"
                       onClick={() => this.userToSearch(reviewer.username)}
                     >
                       <p>{reviewer.username}</p>
@@ -184,7 +186,6 @@ class MainContent extends Component {
               })}
             </Row>
           </Container>
-          <div style={{ height: '100px' }} />
         </div>
       </div>
     );

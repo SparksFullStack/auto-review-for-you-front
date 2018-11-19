@@ -63,7 +63,7 @@ class PopularCar extends Component {
     return (
       <div>
         {this.handleRedirect()}
-        <Button className="modal-button" onClick={() => this.searchFunction()}>
+        <Button outline color="primary" className="modal-button" onClick={() => this.searchFunction()}>
           <p style={{ fontSize: '1.1em' }}>{` ${make} ${model}`}</p>
           <div style={{ height: '150px' }}>
             <img
